@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Mathew Chesumba</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            color: white;
+            text-align: center;
+            transition: background 0.3s, color 0.3s;
+        }
+        nav {
+            background-color: #333;
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            border-bottom: 3px solid #ffcc00;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s, transform 0.2s;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            color: #ffcc00;
+            transform: scale(1.1);
+            background: rgba(255, 204, 0, 0.2);
+        }
+        section {
+            padding: 50px;
+            display: none;
+            animation: slideIn 0.5s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        #home {
+            display: block;
+        }
+        section img {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+            transition: transform 0.3s;
+        }
+        section img:hover {
+            transform: scale(1.05);
+        }
+        /* Dark/Light Mode Toggle */
+        .light-mode {
+            background: #fff;
+            color: #121212;
+        }
+        .light-mode nav {
+            background-color: #fff;
+        }
+        .light-mode nav a {
+            color: #121212;
+        }
+        .light-mode nav a:hover {
+            color: #ffcc00;
+            background: rgba(255, 204, 0, 0.2);
+        }
+        /* Button Style */
+        .mode-toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .mode-toggle-btn:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dark/Light Mode Toggle Button -->
+    <button class="mode-toggle-btn" onclick="toggleMode()">🌙 Light/Dark Mode</button>
+
+    <nav>
+        <a href="javascript:void(0)" onclick="showSection('home')">🏠 Home</a>
+        <a href="javascript:void(0)" onclick="showSection('about')">👤 About</a>
+        <a href="javascript:void(0)" onclick="showSection('skills')">💡 Skills</a>
+        <a href="javascript:void(0)" onclick="showSection('gallery')">🖼️ Gallery</a>
+        <a href="javascript:void(0)" onclick="showSection('education')">🎓 Education</a>
+        <a href="javascript:void(0)" onclick="showSection('projects')">📁 Projects</a>
+        <a href="javascript:void(0)" onclick="showSection('contact')">📞 Contact</a>
+    </nav>
+
+    <section id="home">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Hello, I'm Mathew Chesumba Muyei. Explore my work and skills!</p>
+    </section>
+
+    <section id="about">
+        <h1>About Me</h1>
+        <p>Results-driven Agricultural Engineer, Technical Trainer, and Software Engineer passionate about precision agriculture and technology.</p>
+    </section>
+
+    <section id="skills">
+        <h1>My Skills</h1>
+        <ul>
+            <li>Agricultural Engineering</li>
+            <li>Software Development</li>
+            <li>Programming Languages: Python, JavaScript, HTML, CSS</li>
+        </ul>
+    </section>
+
+    <section id="gallery">
+        <h1>Gallery</h1>
+        <p>My project showcase</p>
+        <img src="project1.jpg" alt="Project 1">
+        <img src="project2.jpg" alt="Project 2">
+    </section>
+
+    <section id="education">
+        <h1>Education</h1>
+        <ul>
+            <li>Diploma in Technical Trainer Education - Agricultural Engineering</li>
+            <li>Diploma in Agricultural Engineering</li>
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h1>Projects</h1>
+        <p>Details about my projects will go here.</p>
+        <ul>
+            <li>
+                <a href="https://mchesumba.github.io/Project-One">Project One</a> - A web assignment project showcasing frontend development skills.
+            </li>
+            <li>
+                <a href="https://mchesumba.github.io/Telemedical-Project">Telemedical Services Project</a> - A web-based platform for telemedicine services.
+            </li>
+            <li>
+                <h2>Temedical - Telemedicine Web App</h2>
+                <p>
+                    Temedical is a telemedicine web app built with Flask, offering features like:
+                    <ul>
+                        <li>Video consultations</li>
+                        <li>E-prescriptions</li>
+                        <li>Secure medical records</li>
+                        <li>Payment integration (Stripe/PayPal)</li>
+                        <li>AI health advice (GPT API/Dialogflow)</li>
+                        <li>Notifications & reminders (Flask-Mail/Twilio)</li>
+                    </ul>
+                    This project aims to provide accessible and convenient healthcare through online consultations and digital health records.
+                </p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h1>Contact</h1>
+        <p>Email: mchesumba@gmail.com</p>
+        <p>Phone: +254 723 936 988</p>
+    </section>
+
+    <script>
+        function showSection(sectionId) {
+            let sections = document.querySelectorAll("section");
+            sections.forEach(section => section.style.display = "none");
+            document.getElementById(sectionId).style.display = "block";
+        }
+
+        function toggleMode() {
+            document.body.classList.toggle('light-mode');
+        }
+    </script>
+
+</body>
+</html>
