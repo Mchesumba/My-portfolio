@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Portfolio - Mathew Chesumba</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,7 +42,7 @@
             background: rgba(255, 204, 0, 0.2);
         }
         section {
-            padding: 50px;
+            padding: 80px 20px 50px;
             display: none;
             animation: slideIn 0.5s ease-in-out;
         }
@@ -63,7 +64,19 @@
         section img:hover {
             transform: scale(1.05);
         }
-        /* Dark/Light Mode Toggle */
+        .skills-icons a {
+            display: inline-block;
+            width: 120px;
+            margin: 15px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+        .skills-icons i {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
         .light-mode {
             background: #fff;
             color: #121212;
@@ -78,7 +91,6 @@
             color: #ffcc00;
             background: rgba(255, 204, 0, 0.2);
         }
-        /* Button Style */
         .mode-toggle-btn {
             position: fixed;
             top: 20px;
@@ -93,11 +105,24 @@
         .mode-toggle-btn:hover {
             background-color: #e6b800;
         }
+        footer {
+            background: #222;
+            color: #fff;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #ffcc00;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Dark/Light Mode Toggle Button -->
     <button class="mode-toggle-btn" onclick="toggleMode()">🌙 Light/Dark Mode</button>
 
     <nav>
@@ -112,7 +137,8 @@
 
     <section id="home">
         <h1>Welcome to My Portfolio</h1>
-        <p>Hello, I'm Mathew Chesumba Muyei. Explore my work and skills!</p>
+        <p>Hello, I'm <strong>Mathew Chesumba Muyei</strong>.</p>
+        <p>I'm an avid agricultural engineering enthusiast on the path to becoming a proficient technical trainer. My background in agricultural engineering, coupled with technical trainer education and software engineering, fuels my desire to educate and inspire in this dynamic field.</p>
     </section>
 
     <section id="about">
@@ -124,35 +150,25 @@
         <h1>My Skills</h1>
         <div class="skills-icons">
             <a href="https://en.wikipedia.org/wiki/Agricultural_engineering" target="_blank">
-                <i class="fas fa-tractor"></i>
-                <p>Agricultural Engineering</p>
+                <i class="fas fa-tractor"></i><p>Agricultural Engineering</p>
             </a>
             <a href="https://www.udemy.com/topic/software-development/" target="_blank">
-                <i class="fas fa-laptop-code"></i>
-                <p>Software Development</p>
+                <i class="fas fa-laptop-code"></i><p>Software Development</p>
             </a>
             <a href="https://www.python.org/" target="_blank">
-                <i class="fab fa-python"></i>
-                <p>Python</p>
+                <i class="fab fa-python"></i><p>Python</p>
             </a>
             <a href="https://www.javascript.com/" target="_blank">
-                <i class="fab fa-js-square"></i>
-                <p>JavaScript</p>
+                <i class="fab fa-js-square"></i><p>JavaScript</p>
             </a>
             <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
-                <i class="fab fa-html5"></i>
-                <p>HTML</p>
+                <i class="fab fa-html5"></i><p>HTML</p>
             </a>
             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
-                <i class="fab fa-css3-alt"></i>
-                <p>CSS</p>
+                <i class="fab fa-css3-alt"></i><p>CSS</p>
             </a>
         </div>
     </section>
-    
-    <!-- Add these lines to the head of your HTML for Font Awesome icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    
 
     <section id="gallery">
         <h1>Gallery</h1>
@@ -162,15 +178,12 @@
     </section>
 
     <section id="education">
-        <h1>cv</h1>
-        <ul>
-        </ul>
+        <h1>CV</h1>
         <p><a href="https://drive.google.com/file/d/1_1NLxr5RwZJenRAg_GmfLGnFgse-gnEA/view?usp=drive_link" target="_blank">Download My Educational Document</a></p>
-    </section>    
-        
+    </section>
+
     <section id="projects">
         <h1>Projects</h1>
-        <p>Details about my projects will go here.</p>
         <ul>
             <li>
                 <a href="https://mchesumba.github.io/Project-One" target="_blank">Project One</a> - A web assignment project showcasing frontend development skills.
@@ -190,17 +203,28 @@
                         <li>AI health advice (GPT API/Dialogflow)</li>
                         <li>Notifications & reminders (Flask-Mail/Twilio)</li>
                     </ul>
-                    This project aims to provide accessible and convenient healthcare through online consultations and digital health records.
                 </p>
             </li>
         </ul>
-    </section>    
+    </section>
 
     <section id="contact">
         <h1>Contact</h1>
         <p>Email: mchesumba@gmail.com</p>
         <p>Phone: +254 723 936 988</p>
     </section>
+
+    <footer>
+        <p>Connect with me:</p>
+        <a href="mailto:mchesumba@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://sites.google.com/view/mathewchesumba/home" target="_blank"><i class="fas fa-globe"></i> Personal Site</a>
+        <a href="https://www.facebook.com/profile.php?id=1000071608091" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://www.linkedin.com/in/mathew-chesumba-213b5b190" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="https://www.youtube.com/channel/UCAxUWxoNU1s6d3tm3w4mMNA" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://github.com/Mchesumba" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <p>&copy; 2025 Mathew Chesumba Muyei</p>
+    </footer>
 
     <script>
         function showSection(sectionId) {
