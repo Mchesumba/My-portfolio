@@ -1,0 +1,364 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #121212;
+    color: white;
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+    min-height: 100vh;
+}
+
+nav {
+    background-color: #333;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    border-bottom: 3px solid #ffcc00;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s, transform 0.2s;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    line-height: 1.5;
+}
+
+nav a:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
+    background: rgba(255, 204, 0, 0.2);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+section {
+    padding: 80px 20px 50px;
+    display: none;
+    animation: slideIn 0.5s ease-in-out;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+#home {
+    display: block;
+}
+
+section img {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+section img:hover {
+    transform: scale(1.05);
+}
+
+.slider {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.slider img {
+    display: none;
+}
+
+.slider img.active {
+    display: block;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.slider-btn.prev {
+    left: 10px;
+}
+
+.slider-btn.next {
+    right: 10px;
+}
+
+.skills-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skills-icons a {
+    display: inline-block;
+    width: 120px;
+    margin: 15px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+
+.skills-icons i {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.light-mode {
+    background: #fff;
+    color: #121212;
+}
+
+.light-mode nav {
+    background-color: #fff;
+}
+
+.light-mode nav a,
+.light-mode .hamburger {
+    color: #121212;
+}
+
+.light-mode nav a:hover {
+    color: #ffcc00;
+    background: rgba(255, 204, 0, 0.2);
+}
+
+.mode-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1001;
+}
+
+.mode-toggle-btn:hover {
+    background-color: #e6b800;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+form label {
+    text-align: left;
+    margin: 10px 0 5px;
+    font-size: 16px;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+form button {
+    padding: 10px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #e6b800;
+}
+
+footer {
+    background: #222;
+    color: #fff;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #ffcc00;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    nav a {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+    section {
+        padding: 70px 15px 40px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .mode-toggle-btn {
+        top: 10px;
+        right: 10px;
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .skills-icons a {
+        width: 80px;
+        margin: 10px;
+    }
+
+    .skills-icons i {
+        font-size: 24px;
+    }
+
+    section img,
+    .slider {
+        max-width: 100%;
+    }
+
+    .slider-btn {
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    form input,
+    form textarea,
+    form button {
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    footer a {
+        margin: 0 5px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav a {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    section {
+        padding: 60px 10px 30px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    .mode-toggle-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .skills-icons a {
+        width: 60px;
+        margin: 8px;
+    }
+
+    .skills-icons i {
+        font-size: 20px;
+    }
+
+    .slider-btn {
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    form label {
+        font-size: 14px;
+    }
+
+    form input,
+    form textarea,
+    form button {
+        font-size: 12px;
+    }
+}

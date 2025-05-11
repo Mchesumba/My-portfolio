@@ -5,137 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Portfolio - Mathew Chesumba</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #121212;
-            color: white;
-            text-align: center;
-            transition: background 0.3s, color 0.3s;
-        }
-        nav {
-            background-color: #333;
-            padding: 15px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            border-bottom: 3px solid #ffcc00;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s, transform 0.2s;
-            cursor: pointer;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-        nav a:hover {
-            color: #ffcc00;
-            transform: scale(1.1);
-            background: rgba(255, 204, 0, 0.2);
-        }
-        section {
-            padding: 80px 20px 50px;
-            display: none;
-            animation: slideIn 0.5s ease-in-out;
-        }
-        @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        #home {
-            display: block;
-        }
-        section img {
-            width: 100%;
-            max-width: 400px;
-            margin: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
-            transition: transform 0.3s;
-        }
-        section img:hover {
-            transform: scale(1.05);
-        }
-        .skills-icons a {
-            display: inline-block;
-            width: 120px;
-            margin: 15px;
-            text-align: center;
-            color: white;
-            text-decoration: none;
-        }
-        .skills-icons i {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        .light-mode {
-            background: #fff;
-            color: #121212;
-        }
-        .light-mode nav {
-            background-color: #fff;
-        }
-        .light-mode nav a {
-            color: #121212;
-        }
-        .light-mode nav a:hover {
-            color: #ffcc00;
-            background: rgba(255, 204, 0, 0.2);
-        }
-        .mode-toggle-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background-color: #ffcc00;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-        .mode-toggle-btn:hover {
-            background-color: #e6b800;
-        }
-        footer {
-            background: #222;
-            color: #fff;
-            padding: 20px;
-            margin-top: 40px;
-        }
-        footer a {
-            color: #ffcc00;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <button class="mode-toggle-btn" onclick="toggleMode()">🌙 Light/Dark Mode</button>
+    <button class="mode-toggle-btn" onclick="toggleMode()" aria-label="Toggle light or dark mode">🌙</button>
 
-    <nav>
-        <a href="javascript:void(0)" onclick="showSection('home')">🏠 Home</a>
-        <a href="javascript:void(0)" onclick="showSection('about')">👤 About</a>
-        <a href="javascript:void(0)" onclick="showSection('skills')">💡 Skills</a>
-        <a href="javascript:void(0)" onclick="showSection('gallery')">🖼️ Gallery</a>
-        <a href="javascript:void(0)" onclick="showSection('education')">🎓 Education</a>
-        <a href="javascript:void(0)" onclick="showSection('projects')">📁 Projects</a>
-        <a href="javascript:void(0)" onclick="showSection('contact')">📞 Contact</a>
+    <nav role="navigation" aria-label="Main navigation">
+        <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links">
+            <a href="javascript:void(0)" onclick="showSection('home')" aria-current="page">🏠 Home</a>
+            <a href="javascript:void(0)" onclick="showSection('about')">👤 About</a>
+            <a href="javascript:void(0)" onclick="showSection('skills')">💡 Skills</a>
+            <a href="javascript:void(0)" onclick="showSection('gallery')">🖼️ Gallery</a>
+            <a href="javascript:void(0)" onclick="showSection('education')">🎓 Education</a>
+            <a href="javascript:void(0)" onclick="showSection('projects')">📁 Projects</a>
+            <a href="javascript:void(0)" onclick="showSection('contact')">📞 Contact</a>
+        </div>
     </nav>
 
-    <section id="home">
+    <section id="home" role="main">
         <h1>Welcome to My Portfolio</h1>
         <p>Hello, I'm <strong>Mathew Chesumba Muyei</strong>.</p>
         <p>I'm an avid agricultural engineering enthusiast on the path to becoming a proficient technical trainer. My background in agricultural engineering, coupled with technical trainer education and software engineering, fuels my desire to educate and inspire in this dynamic field.</p>
@@ -173,8 +64,12 @@
     <section id="gallery">
         <h1>Gallery</h1>
         <p>My project showcase</p>
-        <img src="project1.jpg" alt="Project 1">
-        <img src="project2.jpg" alt="Project 2">
+        <div class="slider">
+            <img src="project1.jpg" srcset="project1-small.jpg 320w, project1.jpg 800w" sizes="(max-width: 600px) 320px, 800px" alt="Project 1: Precision Agriculture Prototype" class="active">
+            <img src="project2.jpg" srcset="project2-small.jpg 320w, project2.jpg 800w" sizes="(max-width: 600px) 320px, 800px" alt="Project 2: Telemedicine Web App">
+        </div>
+        <button class="slider-btn prev" onclick="changeSlide(-1)" aria-label="Previous slide">❮</button>
+        <button class="slider-btn next" onclick="changeSlide(1)" aria-label="Next slide">❯</button>
     </section>
 
     <section id="education">
@@ -210,8 +105,17 @@
 
     <section id="contact">
         <h1>Contact</h1>
-        <p>Email: mchesumba@gmail.com</p>
+        <p>Email: <a href="mailto:mchesumba@gmail.com">mchesumba@gmail.com</a></p>
         <p>Phone: +254 723 936 988</p>
+        <form id="contact-form" role="form" aria-label="Contact form">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </section>
 
     <footer>
@@ -223,20 +127,9 @@
         <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
         <a href="https://www.youtube.com/channel/UCAxUWxoNU1s6d3tm3w4mMNA" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
         <a href="https://github.com/Mchesumba" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <p>&copy; 2025 Mathew Chesumba Muyei</p>
+        <p>© 2025 Mathew Chesumba Muyei</p>
     </footer>
 
-    <script>
-        function showSection(sectionId) {
-            let sections = document.querySelectorAll("section");
-            sections.forEach(section => section.style.display = "none");
-            document.getElementById(sectionId).style.display = "block";
-        }
-
-        function toggleMode() {
-            document.body.classList.toggle('light-mode');
-        }
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
